@@ -1,4 +1,4 @@
-# CPSC 230 --  Introduction to R
+# CPSC 298 | Introduction to R
 # Spring '19
 # Syllabus
 

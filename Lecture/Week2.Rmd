@@ -1,0 +1,202 @@
+---
+title: "Week 2"
+author: "Chelsea Parlett"
+output: html_document
+---
+
+# Data Types
+```{r}
+numer <- 7
+class(numer)
+```
+```{r}
+chara <- "7"
+class(chara)
+```
+
+```{r}
+7*10
+1+6
+2**3
+```
+
+```{r}
+"Chelsea"*10
+```
+
+```{r}
+vec1 <- c(1,2,3)
+class(vec1)
+```
+
+```{r}
+vec1 * 2
+vec1 - 10
+```
+
+```{r}
+vec2 <- c(1,2,3, "7")
+class(vec2)
+```
+```{r}
+vec2[1]
+```
+## Lists
+```{r}
+list1 <- list(1,"4")
+class(list1)
+```
+
+```{r}
+list2 <- list("name" = "Chelsea", "height" = 160)
+class(list2)
+#sort of like a dict in python
+```
+```{r}
+list2$name
+```
+```{r}
+list2[1]
+class(list2[1])
+list2[[1]]
+class(list2[[1]])
+```
+
+## Matrix
+```{r}
+ident <- matrix(c(1,0,0,0,1,0,0,0,1), ncol = 3, byrow = T)
+ident
+```
+```{r}
+ident + 1
+```
+```{r}
+ident
+ident[1,2]
+```
+```{r}
+ident[1,2] <- 3
+ident
+```
+
+```{r}
+t(ident)
+```
+
+```{r}
+v <- c(1,2,3)
+
+v %*% ident
+```
+## Data Frames!
+```{r}
+library(datasets)
+summary(iris)
+class(iris)
+```
+
+```{r}
+head(iris)
+```
+
+```{r}
+summary(iris)
+```
+
+```{r}
+iris$Sepal.Length
+```
+
+```{r}
+iris[1,]
+```
+
+```{r}
+iris[1,"Sepal.Length"]
+```
+
+```{r}
+d <- data.frame(ident)
+d
+```
+```{r}
+names(d) <- c("a","b","c")
+d
+```
+
+```{r}
+set.seed(42)
+height <- rnorm(10,mean = 170, sd = 20)
+weight <- rnorm(10, mean = 150, sd = 20)
+head(height)
+head(weight)
+```
+
+```{r}
+hw <- data.frame(height = height, weight = weight)
+head(hw)
+hw$height
+```
+
+```{r}
+newguy <- c(140,100) #data.frame(height = 140, weight = 100)
+hw <- rbind(hw,newguy)
+hw
+```
+
+```{r}
+age <- rnorm(11, 25, 2)
+hw$age <- age
+#or
+cbind(hw,age)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

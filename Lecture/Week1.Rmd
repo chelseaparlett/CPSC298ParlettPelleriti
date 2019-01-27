@@ -1,0 +1,31 @@
+---
+title: "Week 1"
+output: html_notebook
+---
+
+## Getting Started
+* Console Vs. Script
+* R as a calculator
+* Saving (getwd(), setwd())
+```{r}
+print("Hello World")
+```
+
+```{r}
+getwd()
+setwd("/Users/chelseaparlett/Desktop/Desktop")
+```
+
+## What is R?
+* Statistical Programming Language
+
+
+```{r}
+library(datasets)
+summary(iris)
+```
+
+```{r}
+plot(iris$Sepal.Length, iris$Sepal.Width)
+```
+

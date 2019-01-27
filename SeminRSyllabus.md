@@ -32,9 +32,9 @@ Your Grade is based on 3 things: Participation Quizzes, Project Presentation, an
 Every Other Week will have a very short participation Quiz. You will get points if it is completed. If you miss a quiz, up to 1 quiz can be made up by submitting a fun R or Stats related joke/meme with at least 3 sentences explaining why it is funny in the context of R/stats.
 
 ### Project (general)
-Your project should pick a data set that is interesting to you. You will explore, clean, analyze and visualize your data. Each project must have at LEAST 1 summary of the data, 4 "analyses" (we'll cover what that means in class), and 4 visualizations.
+Your project should pick a data set that is interesting to you. You will explore, clean, analyze and visualize your data. Each project must have at LEAST 1 summary of the data, 5 "analyses" (we'll cover what that means in class), and 5 visualizations.
 
-If you want to work with another person, you may,  but the number of analyses and visualizations will remain 4 per person (so for a 2 person team, 8 analyses, and 8 visualizations). If you work with another person it should be because it's a larger project. You must check with me before forming a group.
+If you want to work with another person, you may,  but the number of analyses and visualizations will remain 5 per person (so for a 2 person team, 10 analyses, and 10 visualizations). If you work with another person it should be because it's a larger project. You must check with me before forming a group.
 
 ### Project Presentation
 Everyone will give a 2-5 minute (per person) "lightening Talk" on your project.

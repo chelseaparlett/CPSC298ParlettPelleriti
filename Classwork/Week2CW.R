@@ -23,8 +23,8 @@
 #for more info about the data.
 
 #plot out the body for each beaver over time. Use the column activ to decide whether
-#days where outside activity occured (activ = 1) have different mean temps than
-#days when it did not. How can you use filtering and mean() to do that? (p.s. no
+#times where outside activity occured (activ = 1) have different mean temps than
+#times when it did not. How can you use filtering and mean() to do that? (p.s. no
 #need to do a statistical test yet, just see if they're different)
 
 #-----------------------------------------------------------------------------------

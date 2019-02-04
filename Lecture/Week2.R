@@ -3,16 +3,20 @@
 seq(1,10, length = 10)
 seq(1,10, by = 2)
 rep(10,100)
+rep(NA,100)
 seqs <- rep(1:10,10)
 
+seqs > 5
 any(seqs > 5)
 all(seqs > 5)
 
 #we Hate John
 our_names <- c("Chelsea", "John", "Jim", "Bianca", "Amy", "John", "Jake", "Tony", "Sam")
 ifelse(our_names == "John", "J-Money", our_names)
+
 which(our_names == "John")
 our_names == "John"
+
 our_names[our_names == "John"]
 
 #LISTS--------------------------------------------
@@ -24,11 +28,13 @@ list2$name
 
 list2[1]
 class(list2[1])
+
 list2[[1]]
 class(list2[[1]])
 
 #MATRIX----------------------------------------------
-ident <- matrix(c(1,0,0,0,1,0,0,0,1), ncol = 3, byrow = T)
+ident <- matrix(c(1,0,0,0,1,0,0,0,1), ncol = 3,
+                byrow = T)
 ident
 
 ident + 1
@@ -62,14 +68,18 @@ d
 
 #creating your own
 set.seed(42)
+
 height <- rnorm(10,mean = 170, sd = 20)
 weight <- rnorm(10, mean = 150, sd = 20)
 head(height)
 head(weight)
+height <- round(height,2)
+weight <- round(weight,2)
 
-hw <- data.frame(height = height, weight = weight)
+hw <- data.frame(h = height, w = weight)
 head(hw)
-hw$height
+hw$h
+
 newguy <- c(140,100) #data.frame(height = 140, weight = 100)
 hw <- rbind(hw,newguy)
 hw
@@ -131,6 +141,8 @@ plot(iris)
 
 #BTW just to mention...
 example(hist)
+
+
 
 
 

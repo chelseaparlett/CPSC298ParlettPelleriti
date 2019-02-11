@@ -119,3 +119,38 @@ mapply(paste,c("Chelsea", "Tony", "Sam"),
 
 #aggregate-----------------------------------
 aggregate(iris[,1:4], FUN = mean, by = list(species = iris$Species))
+
+
+
+
+#PROOF---------------------------------------
+library(microbenchmark)
+library(ggplot2)
+
+
+#Two Ways of getting Means
+applyF <- function(x){
+  return(lapply(x,mean))
+}
+loopF <- function(x){
+  l <- c()
+  for (i in x){
+    l <- c(l,mean(i))
+  }
+  return(l)
+}
+createF <- function(){
+  a <- data.frame(d=rnorm(100000000), lab = sort(rep(1:1000,100000)))
+  a$lab <- factor(a$lab)
+  a <- split(a$d,a$lab)
+  x <- data.frame(a)
+  return(x)
+}
+
+x <- createF()
+#TEST
+n <- 100
+applyWay <- microbenchmark(applyF(x),loopF(x),times = n)
+autoplot(applyWay)  +
+  stat_summary(fun.y=mean, geom="point", size=2, color="red")
+applyWay

@@ -133,9 +133,9 @@ applyF <- function(x){
   return(lapply(x,mean))
 }
 loopF <- function(x){
-  l <- c()
-  for (i in x){
-    l <- c(l,mean(i))
+  l <- rep(NA,dim(x)[2])
+  for (i in 1:dim(x)[2]){
+    l[i] <- mean(x[,i])
   }
   return(l)
 }

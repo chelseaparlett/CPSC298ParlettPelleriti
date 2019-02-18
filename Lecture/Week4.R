@@ -15,7 +15,7 @@ aggregate(ToothGrowth[,c("len","dose")],
 
 
 #graphing---------------------------------------------------
-hist(ToothGrowth$len, xlab = "Cell Length",
+hist(ToothGrowth$len), xlab = "Cell Length",
      ylab = "Count", main = "HISTOGRAM OF CELL LENGTH")
 
 hist(ToothGrowth[ToothGrowth$supp == "OJ", "len"],
@@ -32,7 +32,8 @@ ToothGrowth$dose <- factor(ToothGrowth$dose)
 
 
 doseSplit <- split(ToothGrowth, ToothGrowth$dose)
-lapply(doseSplit, FUN = function(x) hist(x$len, main = x$dose[1], xlim = c(0,40)))
+lapply(doseSplit, FUN = function(x) hist(x$len,
+                    main = x$dose[1], xlim = c(0,40)))
 
 tble <- aggregate(ToothGrowth[,"len"], FUN = mean,
           by = list(acid = ToothGrowth$supp,
@@ -65,9 +66,14 @@ head(melanoma)
 summary(melanoma)
 
 #Where to start first???
+melanoma$status <- factor(melanoma$status)
+plot(melanoma$thickness, melanoma$age)
+plot(melanoma$sex, melanoma$thickness)
+plot(melanoma$status,melanoma$thickness)
+
+
 #graphing-------------------------------------------------
 plot(melanoma$thickness, melanoma$time)
-
 hist(melanoma$time)
 hist(melanoma[melanoma$ulcer == 1, "time"]) #how to make titles pretty?
 hist(melanoma[melanoma$ulcer == 0, "time"]) #how to make xaxes the same?

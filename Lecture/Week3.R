@@ -80,7 +80,7 @@ my_fun <- function(column){
   return(max(column))
 }
 
-apply(mat,2,my_fun)
+apply(mat,1,my_fun)
 
 #lapply()-----------------------------------
 #QUICK REVIEW: normal distribution
@@ -118,7 +118,8 @@ mapply(paste,c("Chelsea", "Tony", "Sam"),
        c("Parlett", "Pelleriti","Jones"))
 
 #aggregate-----------------------------------
-aggregate(iris[,1:4], FUN = mean, by = list(species = iris$Species))
+aggregate(iris[,1:4], FUN = mean,
+          by = list(species = iris$Species))
 
 
 

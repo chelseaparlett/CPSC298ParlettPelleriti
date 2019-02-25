@@ -2,9 +2,11 @@
 library(ggplot2)
 #plotting------------------------------------
 #---scatterplot------------------------------
-plot(iris$Sepal.Length,iris$Sepal.Width, col = iris$Species)
+plot(iris$Sepal.Length,iris$Sepal.Width,
+     col = iris$Species)
 
-gg <- ggplot(iris,aes(x = iris$Sepal.Length, y = iris$Sepal.Width,
+gg <- ggplot(iris,aes(x = iris$Sepal.Length,
+                      y = iris$Sepal.Width,
                 color = iris$Species))
 gg
 #STEP 1: tell ggplot what the data is

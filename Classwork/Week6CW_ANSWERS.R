@@ -1,0 +1,6 @@
+ggplot(mtcars, aes(mpg,wt)) + geom_point(aes(color = cyl, shape = factor(vs)))
+mtcars$cyl <- factor(mtcars$cyl)
+mtcars$vs <- factor(mtcars$vs)
+ggplot(mtcars, aes(mpg,wt)) + geom_point(aes(color = cyl, shape = factor(vs)))
+gg <- ggplot(mtcars, aes(mpg,wt)) + geom_point(aes(color = cyl, shape = factor(vs)))
+gg + theme_wsj()

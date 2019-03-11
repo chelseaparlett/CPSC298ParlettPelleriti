@@ -3,6 +3,23 @@
 data <- read.csv(file.choose())
 #libraries-----------------------------------
 library(MASS)
+#functions-----------------------------------
+t.sim <- function(v1,v2,ns,lim){
+  n = 50000
+  sds <- sd(c(v1,v2))
+  mu <- mean(c(v1,v2))
+  meanDIFF <- rep(NA,n)
+  for (i in 1:n){
+    g <- rnorm(ns,mu, sds)
+    k <- rnorm(ns,mu, sds)
+    meanDIFF[i] <- mean(g) - mean(k)
+  }
+  
+  hist(meanDIFF,xlim= c(-lim,lim))
+  ourDIFF <- mean(v1)-mean(v2)
+  segments(ourDIFF,0,ourDIFF,10000, col = "red")
+  
+}
 #explore-------------------------------------
 head(UScereal)
 UScereal$name <- rownames(UScereal)
@@ -14,7 +31,7 @@ hist(UScereal$calories)
 hist(UScereal$protein)
 
 plot(UScereal$calories,UScereal$sugar)
-plot(UScereal$vitamins,UScereal$calories) #what is the median?
+plot(UScereal$mfr,UScereal$calories) #what is the median?
 
 #Simple Inference----------------------------
 
@@ -37,25 +54,22 @@ plot(as.numeric(subSet$mfr), subSet$calories)
 
 #what if no diff?
 mn <- mean(subSet$calories)
-ourDIFF <- mean(subSet[subSet$mfr == "G","calories"]) -
-  mean(subSet[subSet$mfr == "K","calories"])
+Greal<- subSet[subSet$mfr == "G","calories"]
+Kreal <- subSet[subSet$mfr == "K","calories"]
+ourDIFF <- mean(Greal) - mean(Kreal)
+
 g <- rnorm(50,mn, sd(subSet$calories))
 k <- rnorm(50,mn, sd(subSet$calories))
 labs <- factor(c(rep("G",50), rep("K", 50)))
 dat <- c(g,k)
+
+
 plot(labs,dat)
 mean(g) - mean(k)
 
-n = 50000
-meanDIFF <- rep(NA,n)
-for (i in 1:n){
-  g <- rnorm(50,130, sd(subSet$calories))
-  k <- rnorm(50,130, sd(subSet$calories))
-  meanDIFF[i] <- mean(g) - mean(k)
-}
+t.sim(Greal,Kreal,50,40)
 
-hist(meanDIFF)
-segments(ourDIFF,0,ourDIFF,10000, col = "red")
+
 #VARIATION is important. What does it tell you?
 
 t.test(subSet[subSet$mfr == "G","calories"],
@@ -76,3 +90,6 @@ alldata <- c(set,vers)
 plot(labs2,alldata)
 
 t.test(set,vers,var.equal = T)
+
+t.sim(set,vers,50,1.5)
+

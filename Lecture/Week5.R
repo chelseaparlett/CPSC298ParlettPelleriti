@@ -41,7 +41,8 @@ plot(UScereal$mfr,UScereal$calories) #what is the median?
 
 #But how can we be sure?
 #T-test
-subSet <- UScereal[UScereal$mfr %in% c("G","K"),c( "mfr","calories")]
+subSet <- UScereal[UScereal$mfr %in% c("G","K"),
+                   c( "mfr","calories")]
 head(subSet)
 
 plot(factor(subSet$mfr), subSet$calories)
@@ -58,16 +59,16 @@ Greal<- subSet[subSet$mfr == "G","calories"]
 Kreal <- subSet[subSet$mfr == "K","calories"]
 ourDIFF <- mean(Greal) - mean(Kreal)
 
-g <- rnorm(50,mn, sd(subSet$calories))
-k <- rnorm(50,mn, sd(subSet$calories))
-labs <- factor(c(rep("G",50), rep("K", 50)))
+g <- rnorm(20,mn, sd(subSet$calories))
+k <- rnorm(20,mn, sd(subSet$calories))
+labs <- factor(c(rep("G",20), rep("K", 20)))
 dat <- c(g,k)
 
 
 plot(labs,dat)
 mean(g) - mean(k)
 
-t.sim(Greal,Kreal,50,40)
+t.sim(Greal,Kreal,20,40)
 
 
 #VARIATION is important. What does it tell you?

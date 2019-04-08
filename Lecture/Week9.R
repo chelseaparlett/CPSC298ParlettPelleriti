@@ -69,7 +69,7 @@ anova(mod) #see? SQUARED!
 
 
 #multiple factors---------------------------------------
-mod2 <- lm(mpg~wt + disp, data = mtcars )
+mod2 <- lm(mpg~wt + disp, data = mtcars)
 summary(mod2)
 
 #same with ANOVA

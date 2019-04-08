@@ -19,7 +19,8 @@ ggplot(iris, aes(x = Species, y = Sepal.Length)) + geom_boxplot()
 
 #effect Sizes
 spec <- unique(iris$Species)
-means <- lapply(spec, function(x) mean(iris[iris$Species == x,"Sepal.Length"]))
+means <- lapply(spec, function(x) mean(iris[iris$Species == x,
+                                            "Sepal.Length"]))
 names(means) <- spec
 means
 
@@ -27,8 +28,10 @@ means
 #------admin-----------------------------------------------------
 set.seed(123)
 iris$jitter <- rnorm(dim(iris)[1],0,1)
-iris[iris$Species == "setosa", "jitter"] <- iris[iris$Species == "setosa", "jitter"] + 8
-iris[iris$Species == "versicolor", "jitter"] <- iris[iris$Species == "versicolor", "jitter"] + 4
+iris[iris$Species == "setosa", "jitter"] <- iris[iris$Species == "setosa",
+                                                 "jitter"] + 8
+iris[iris$Species == "versicolor", "jitter"] <- iris[iris$Species == "versicolor",
+                                                     "jitter"] + 4
 
 overallmean = mean(iris$Sepal.Length)
 versMean <- mean(iris[iris$Species == "versicolor","Sepal.Length"])
@@ -91,15 +94,6 @@ pG + geom_segment(x = iris$jitter,
                yend = setMean) + 
   geom_hline(yintercept = overallmean, lwd = 1.5, lty = 2) 
 
-
-
-
-
-
-
-
-
-
 #------examples of plots (admin)---------------------------------
 set.seed(123)
 e1A <- rnorm(20,10,20)
@@ -130,7 +124,7 @@ Es <- data.frame(scores = scores,
                  group = group,
                  Exp = factor(exper))
 
-Es$jitter <- e1$group + rnorm(240,0,2)
+Es$jitter <- Es$group + rnorm(240,0,2)
 
 ggplot(Es,aes(x = jitter, y = scores, color = group)) +
   geom_point() + theme_minimal() + facet_wrap(~Exp) +
@@ -166,7 +160,7 @@ Es <- data.frame(scores = scores,
                  group = group,
                  Exp = factor(exper))
 
-Es$jitter <- e1$group + rnorm(240,0,2)
+Es$jitter <- Es$group + rnorm(240,0,2)
 
 ggplot(Es,aes(x = jitter, y = scores, color = group)) +
   geom_point() + theme_minimal() + facet_wrap(~Exp) +
@@ -199,3 +193,4 @@ ggplot(mtcars, aes(x = as.numeric(gear), y = mpg)) +
   geom_point() + labs(title = "GEARS by MPG", x = "Gear") +
   theme(axis.text.x = element_blank())
 
+data <- read.csv(file.choose())

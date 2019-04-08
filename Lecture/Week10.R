@@ -93,8 +93,6 @@ d
 
 
 #Hierarchical------------------------------------------------
-# https://drive.google.com/open?id=18l0qGqXfzxnAf7Yz0BsCNI46edxP42ou1EX2Rt0Hk8s
-
 hierarchical <- hclust(dist(iris[1:4]))
 plot(hierarchical,labels = F)
 three <- cutree(hierarchical,3)
@@ -118,6 +116,7 @@ ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Hclust2, shape = Species)) +
 #---other dendros------------------------------------------
 plot(x)
 h <- hclust(dist(x))
-plot(h)
+plot(h, labels = F)
+plot(hierarchical,labels = F)
 
 #notice the difference in densities?

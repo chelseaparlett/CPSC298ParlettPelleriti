@@ -3,6 +3,15 @@
 library(cluster) 
 library(mclust)  
 library(tidyverse)
+library(MASS)
+library(vcd)
+#CHISQ Real Quick--------------------------------------------
+head(Arthritis)
+plot(Arthritis[,c("Treatment","Improved")])
+xt <- xtabs(~ Treatment + Improved, Arthritis)
+xt
+
+chisq.test(xt)
 #admin-------------------------------------------------------
 x <- data.frame(x = rnorm(100,100,20), y = rnorm(100,100,20))
 #KMEANS------------------------------------------------------

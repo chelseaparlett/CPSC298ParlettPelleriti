@@ -1,5 +1,9 @@
 head(mtcars)
-
+summary(mtcars)
+mtcars$cyl <- factor(mtcars$cyl)
+mtcars$am <- factor(mtcars$am)
+mtcars$vs <- factor(mtcars$vs)
+mtcars$gear <- factor(mtcars$gear)
 #analyses + viz------------------------------------------
 #1
 m1 <- lm(wt~mpg,mtcars)
@@ -17,7 +21,7 @@ ggplot(mtcars, aes(x =mpg, y = wt)) + geom_point() +
 
 
 #2
-mtcars$vs <- factor(mtcars$vs)
+
 m2 <- aov(mpg~vs, data = mtcars)
 summary(m2)
 
@@ -33,7 +37,7 @@ ggplot(mtcars, aes(x = vs, y = mpg)) +
 
 
 #3
-ggplot(mtcars, aes(x = mpg, y= qsec)) + geom_point()
+#ggplot(mtcars, aes(x = mpg, y= qsec)) + geom_point()
 m3 <- kmeans(mtcars[,c("mpg","qsec")],centers = 2)
 
 mtcars$cluster <- factor(m3$cluster)
@@ -81,5 +85,7 @@ chisq.test(t)
 
 ggplot(mtcars, aes(am, fill = vs)) + geom_bar()
 
-
+ggplot(mtcars, aes(group = am, y = mpg)) +
+  geom_boxplot(aes(fill = am)) +
+  facet_grid(~vs) + ggtitle("MPG vs AM and VS")
 

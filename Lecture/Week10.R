@@ -86,6 +86,7 @@ j <- kmonce(j$j)
 
 #---using R -------------------------------------------------
 km1 <- kmeans(cust,centers = 3)
+
 cust$cluster <- factor(km1$cluster)
 ggplot(cust, aes(x = trips, y = items, color = cluster)) + geom_point() + theme_minimal()
 

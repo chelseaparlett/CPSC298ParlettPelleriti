@@ -29,8 +29,14 @@ sample <- sample.int(n = nrow(dogs), size = floor(.75*nrow(dogs)), replace = F)
 train <- dogs[sample, ]
 test  <- dogs[-sample, ]
 
+
+
 lr <- glm(gold ~ weight + height, data = train, family = "binomial")
-summary(lr)
+lrS <- summary(lr)
+lrS
+
+#As height and weight go up, the probability of being a golden retriever goes up
+
 
 #Confusion Matrix
 predict <- predict(lr, test, type = 'response')
@@ -67,6 +73,6 @@ knnGraph(15)
 
 #---knn in R-------------------------------------------------
 kn <- knn(train[,1:2],test[,1:2], cl = train$gold, k = 10, prob = T)
-plot(kn)
+
 
 table(test$gold,kn)

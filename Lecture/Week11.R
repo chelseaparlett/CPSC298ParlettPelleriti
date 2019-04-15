@@ -22,16 +22,20 @@ dogs <- rbind(corgis, huskies)
 #actually we predict the log of the odds.
 # log(odds) ~ x + y
 
-ggplot(dogs,aes(x = height, y = weight, color = gold)) + geom_point()
+ggplot(dogs,aes(x = height, y = weight, color = gold)) +
+  geom_point()
 
 set.seed(101) 
-sample <- sample.int(n = nrow(dogs), size = floor(.75*nrow(dogs)), replace = F)
+sample <- sample.int(n = nrow(dogs),
+                     size = floor(.75*nrow(dogs)),
+                     replace = F)
 train <- dogs[sample, ]
 test  <- dogs[-sample, ]
 
 
-
-lr <- glm(gold ~ weight + height, data = train, family = "binomial")
+#lm(height~weight, data = dogs)
+lr <- glm(gold ~ weight + height, data = train,
+          family = "binomial")
 lrS <- summary(lr)
 lrS
 
@@ -72,7 +76,9 @@ knnGraph(11)
 knnGraph(15)
 
 #---knn in R-------------------------------------------------
-kn <- knn(train[,1:2],test[,1:2], cl = train$gold, k = 10, prob = T)
+kn <- knn(train[,1:2],test[,1:2],
+          cl = train$gold,
+          k = 30, prob = T)
 
 
 table(test$gold,kn)

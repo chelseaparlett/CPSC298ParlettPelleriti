@@ -43,4 +43,4 @@ gg4 + theme_classic()
 install.packages("ggthemes")
 library(ggthemes)
 
-gg4 + theme_wsj()
+gg4 + theme_wsj() + theme_classic()

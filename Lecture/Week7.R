@@ -49,7 +49,7 @@ gg3
 
 gg3 + facet_wrap(~Sex)
 
-gg3 + facet_wrap(~Sex) +
+gg3 + facet_grid(~Sex) +
   geom_smooth(method = lm) 
 
 gg3 + facet_wrap(~Sex) + geom_smooth(method = lm) +

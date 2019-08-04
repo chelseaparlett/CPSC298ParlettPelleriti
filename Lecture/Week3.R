@@ -69,8 +69,9 @@ vowLets2 <- ifelse(letters %in% vowels, TRUE, FALSE)
 
 #--------------------------------------------
 #Apply Family
+#WHY WASTE TIME WRITE LOT LINE WHEN FEW LINE DO TRICK
+#https://www.guru99.com/r-apply-sapply-tapply.html
 #--------------------------------------------
-#https://www.datacamp.com/community/tutorials/r-tutorial-apply-family
 #apply()-------------------------------------
 mat <- matrix(c(1,2,3,4,7,4,2,5,7), nrow = 3)
 apply(mat,2,mean)
